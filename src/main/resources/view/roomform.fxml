@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="838.0" prefWidth="1215.0" style="-fx-background-color: #f8f6f6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm.controller.RoomformController">
+   <children>
+      <AnchorPane layoutX="56.0" layoutY="34.0" prefHeight="359.0" prefWidth="846.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+         <children>
+            <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="693.0" layoutY="249.0" onAction="#btnSaveOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #57cc99; -fx-background-radius: 10;" text="Save">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="530.0" layoutY="249.0" onAction="#btnUpdateOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #62b6cb; -fx-background-radius: 10;" text="Update">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="361.0" layoutY="249.0" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #ff595e; -fx-background-radius: 10;" text="Delete">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnClear" buttonType="RAISED" layoutX="193.0" layoutY="249.0" onAction="#btnClearOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #ffd60a; -fx-background-radius: 10;" text="Clear">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/clear.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXTextField fx:id="txtId" focusColor="#9b5de5" labelFloat="true" layoutX="128.0" layoutY="62.0" onAction="#txtIdOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Room Type Id" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtType" focusColor="#9b5de5" labelFloat="true" layoutX="494.0" layoutY="62.0" onAction="#txtTypeOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Room Type" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtQty" focusColor="#9b5de5" labelFloat="true" layoutX="499.0" layoutY="150.0" onAction="#txtQtyOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Quantity" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtMoney" focusColor="#9b5de5" labelFloat="true" layoutX="128.0" layoutY="152.0" onAction="#txtMoneyOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Key Money" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="985.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icon-room.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="1023.0" layoutY="221.0" prefHeight="56.0" prefWidth="113.0" text="Rooms" textFill="#ff758f">
+         <font>
+            <Font name="Bell MT Bold" size="28.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="63.0" layoutY="419.0" prefHeight="94.0" prefWidth="1094.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+         <children>
+            <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="919.0" layoutY="21.0" onAction="#btnSearchOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #f2e9e4; -fx-background-radius: 10;" text="Search">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/search_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </JFXButton>
+            <TextField fx:id="txtSearch" layoutX="67.0" layoutY="24.0" prefHeight="42.0" prefWidth="768.0" promptText="Enter Room Id" style="-fx-background-color: #f8edeb; -fx-background-radius: 15;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tblRooms" layoutX="63.0" layoutY="544.0" prefHeight="246.0" prefWidth="1090.0">
+         <columns>
+            <TableColumn fx:id="colRoomId" prefWidth="183.19995498657227" text="Room Id" />
+            <TableColumn fx:id="colType" prefWidth="335.19993591308594" text="Room Type" />
+            <TableColumn fx:id="colMoney" prefWidth="330.4000244140625" text="Key Money" />
+            <TableColumn fx:id="colQty" prefWidth="243.466552734375" text="Quantity" />
+         </columns>
+         <stylesheets>
+            <URL value="@../../../../../../AD1/Layered-MyProject/project%20co-operative/src/main/resources/styles/table.css" />
+            <URL value="@../../../../../../AD1/Layered-MyProject/project%20co-operative/src/main/resources/styles/tablebg.css" />
+         </stylesheets>
+      </TableView>
+   </children>
+</AnchorPane>

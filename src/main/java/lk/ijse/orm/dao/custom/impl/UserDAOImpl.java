@@ -1,0 +1,91 @@
+package lk.ijse.orm.dao.custom.impl;
+
+import lk.ijse.orm.dao.custom.UserDAO;
+import lk.ijse.orm.entity.User;
+import lk.ijse.orm.util.FactoryConfiguration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.List;
+
+public class UserDAOImpl implements UserDAO {
+    @Override
+    public boolean add(User entity){
+        return false;
+    }
+
+    @Override
+    public boolean delete(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean update(User entity) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.update(entity);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public boolean exists(String s) {
+        return false;
+    }
+
+    @Override
+    public List<User> getAll() {
+        return null;
+    }
+
+    @Override
+    public String getCount() {
+        return null;
+    }
+
+    @Override
+    public User authenticate(String username, String password) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try{
+            Query query = session.createQuery("select u from User u where userName = ?1 and password = ?2");
+            query.setParameter(1,username);
+            query.setParameter(2,password);
+            return (User) query.getSingleResult();
+        }catch (Exception e){
+            transaction.rollback();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
+
+    @Override
+    public User get(String userId) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            User user = session.get(User.class,userId);
+            transaction.commit();
+            return user;
+        }catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
+}
