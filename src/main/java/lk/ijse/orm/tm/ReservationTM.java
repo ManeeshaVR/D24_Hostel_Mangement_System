@@ -18,8 +18,9 @@ public class ReservationTM {
     private String reservationId;
     private LocalDate date;
     private String studentId;
-    private String roomTypeId;
+    private String studentName;
+    private String roomId;
+    private String roomType;
     private String status;
-    private HBox hBox;
 
 }

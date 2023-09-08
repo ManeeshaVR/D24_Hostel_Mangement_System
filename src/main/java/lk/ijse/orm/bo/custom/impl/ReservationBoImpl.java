@@ -3,6 +3,7 @@ package lk.ijse.orm.bo.custom.impl;
 import lk.ijse.orm.bo.Convertor;
 import lk.ijse.orm.bo.custom.ReservationBo;
 import lk.ijse.orm.dao.DAOFactory;
+import lk.ijse.orm.dao.custom.QueryDAO;
 import lk.ijse.orm.dao.custom.ReservationDAO;
 import lk.ijse.orm.dao.custom.RoomDAO;
 import lk.ijse.orm.dao.custom.StudentDAO;
@@ -21,6 +22,7 @@ public class ReservationBoImpl implements ReservationBo {
     ReservationDAO reservationDAO = (ReservationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.RESERVATION);
     StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
     RoomDAO roomDAO = (RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOM);
+    QueryDAO queryDAO = (QueryDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERY);
 
     @Override
     public List<ReservationDTO> getAllReservations(){
@@ -63,8 +65,18 @@ public class ReservationBoImpl implements ReservationBo {
     }
 
     @Override
-    public boolean saveReservation(ReservationDTO reservationDTO) {
+    public ReservationDTO getReservation(String reservationId) {
+        return null;
+    }
+
+    @Override
+    public boolean saveReservation(ReservationDTO reservationDTO, RoomDTO roomDTO) {
         return reservationDAO.add(Convertor.toReservation(reservationDTO));
+    }
+
+    @Override
+    public boolean existReservation(String reservationId) {
+        return reservationDAO.exists(reservationId);
     }
 
     @Override
@@ -73,7 +85,17 @@ public class ReservationBoImpl implements ReservationBo {
     }
 
     @Override
-    public boolean cancelReservation(ReservationDTO reservationDTO) {
-        return reservationDAO.update(Convertor.toReservation(reservationDTO));
+    public boolean deleteReservation(String reservationId, RoomDTO roomDTO) {
+        return reservationDAO.delete(reservationId);
+    }
+
+    @Override
+    public List<ReservationDTO> getPendingPayments() {
+        List<Reservation> reservations = reservationDAO.getPendingPayments();
+        List<ReservationDTO> reservationDTOS = new ArrayList<>();
+        for (Reservation reservation : reservations) {
+            reservationDTOS.add(Convertor.toReservationDTO(reservation));
+        }
+        return reservationDTOS;
     }
 }

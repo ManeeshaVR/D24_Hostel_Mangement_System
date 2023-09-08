@@ -97,7 +97,7 @@
                   <Image url="@../images/icon-money.png" />
                </image>
             </ImageView>
-            <Label layoutX="85.0" layoutY="17.0" prefHeight="35.0" prefWidth="120.0" text="Total Expenses" textFill="#adb5bd">
+            <Label layoutX="85.0" layoutY="17.0" prefHeight="35.0" prefWidth="120.0" text="Total Admins" textFill="#adb5bd">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

@@ -44,15 +44,14 @@ public class DashboardformController implements Initializable {
 
     @FXML
     void accountBtnOnAction(ActionEvent event) throws IOException {
-        backgroundRemove();
-        pane.getChildren().clear();
-        pane.getChildren().add(FXMLLoader.load(getClass().getResource("/view/studentform.fxml")));
-        btnDash.setStyle("-fx-background-color:  #00b4d8;");
-    }
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/accountform.fxml"));
+        Scene scene = new Scene(anchorPane);
 
-    @FXML
-    void btnInterestOnAction(ActionEvent event) {
-
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Account Form");
+        stage.centerOnScreen();
+        stage.setResizable(false);
     }
 
     @FXML
@@ -71,7 +70,7 @@ public class DashboardformController implements Initializable {
         backgroundRemove();
         pane.getChildren().clear();
         pane.getChildren().add(FXMLLoader.load(getClass().getResource("/view/homeform.fxml")));
-        btnDash.setStyle("-fx-background-color:  #00b4d8;");
+        btnDash.setStyle("-fx-background-color:   #ffadad;");
     }
 
     @FXML
@@ -79,7 +78,7 @@ public class DashboardformController implements Initializable {
         backgroundRemove();
         pane.getChildren().clear();
         pane.getChildren().add(FXMLLoader.load(getClass().getResource("/view/reservationform.fxml")));
-        btnReserv.setStyle("-fx-background-color:  #00b4d8;");
+        btnReserv.setStyle("-fx-background-color:   #ffadad;");
     }
 
     @FXML
@@ -87,7 +86,7 @@ public class DashboardformController implements Initializable {
         backgroundRemove();
         pane.getChildren().clear();
         pane.getChildren().add(FXMLLoader.load(getClass().getResource("/view/roomform.fxml")));
-        btnRoom.setStyle("-fx-background-color:  #00b4d8;");
+        btnRoom.setStyle("-fx-background-color:   #ffadad;");
     }
 
     @FXML
@@ -95,7 +94,7 @@ public class DashboardformController implements Initializable {
         backgroundRemove();
         pane.getChildren().clear();
         pane.getChildren().add(FXMLLoader.load(getClass().getResource("/view/studentform.fxml")));
-        btnStudent.setStyle("-fx-background-color:  #00b4d8;");
+        btnStudent.setStyle("-fx-background-color:   #ffadad;");
     }
 
     private void backgroundRemove() {
@@ -111,7 +110,7 @@ public class DashboardformController implements Initializable {
         pane.getChildren().clear();
         try {
             pane.getChildren().add(FXMLLoader.load(getClass().getResource("/view/homeform.fxml")));
-            btnDash.setStyle("-fx-background-color:  #00b4d8;");
+            btnDash.setStyle("-fx-background-color:   #ffadad;");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -11,9 +11,9 @@ public class Appinitializer extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/loginform.fxml"))));
         primaryStage.getIcons().add(new Image("images/Hostel-Logo-removebg.png"));
-        primaryStage.setMaximized(true);
         primaryStage.setTitle("Login");
         primaryStage.show();
         primaryStage.centerOnScreen();
+        primaryStage.setResizable(false);
     }
 }

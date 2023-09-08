@@ -12,7 +12,19 @@ import java.util.List;
 public class UserDAOImpl implements UserDAO {
     @Override
     public boolean add(User entity){
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.save(entity);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -59,7 +71,7 @@ public class UserDAOImpl implements UserDAO {
         Transaction transaction = session.beginTransaction();
 
         try{
-            Query query = session.createQuery("select u from User u where userName = ?1 and password = ?2");
+            Query query = session.createQuery("select u from user u where username = ?1 and password = ?2");
             query.setParameter(1,username);
             query.setParameter(2,password);
             return (User) query.getSingleResult();

@@ -1,5 +1,6 @@
 package lk.ijse.orm.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.orm.bo.BOFactory;
 import lk.ijse.orm.bo.custom.LoginBo;
@@ -26,6 +28,15 @@ public class LoginformController implements Initializable {
     @FXML
     private JFXTextField txtPassword;
 
+    @FXML
+    private JFXButton btnSignUp;
+
+    @FXML
+    private JFXButton btnLogin;
+
+    @FXML
+    private AnchorPane root;
+
     LoginBo loginBO = (LoginBo) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.LOGIN);
 
     @FXML
@@ -34,8 +45,34 @@ public class LoginformController implements Initializable {
     }
 
     @FXML
-    void txtPasswordOnAction(ActionEvent event) {
+    void txtPasswordOnAction(ActionEvent event) throws IOException {
+        if (!txtName.getText().isEmpty()){
+            if (!txtPassword.getText().isEmpty()){
 
+                String username = txtName.getText();
+                String password = txtPassword.getText();
+
+                boolean isAuthenticated = loginBO.authenticateUser(username,password);
+                if (isAuthenticated){
+                    UserDTO userDTO = loginBO.getUser(username,password);
+
+                    AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboardform.fxml"));
+                    Scene scene = new Scene(anchorPane);
+                    Stage stage = (Stage) root.getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setTitle("Dashboard Form");
+                    stage.centerOnScreen();
+                    stage.setResizable(true);
+
+                }else{
+                    new Alert(Alert.AlertType.WARNING,"incorrect username or password.", ButtonType.OK).show();
+                }
+            }else{
+                new Alert(Alert.AlertType.WARNING,"enter valid password.", ButtonType.OK).show();
+            }
+        }else{
+            new Alert(Alert.AlertType.WARNING,"enter valid username.", ButtonType.OK).show();
+        }
     }
 
     @FXML
@@ -50,14 +87,13 @@ public class LoginformController implements Initializable {
                 if (isAuthenticated){
                     UserDTO userDTO = loginBO.getUser(username,password);
 
-                    Stage stage = (Stage) txtName.getScene().getWindow();
-                    stage.setTitle("D24 Hostel Management System");
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboardform.fxml"));
-                    Parent scene = loader.load();
-                    stage.setScene(new Scene(scene));
-                    HomeformController home = new HomeformController();
-                    home.addUser(userDTO);
-                    stage.show();
+                    AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboardform.fxml"));
+                    Scene scene = new Scene(anchorPane);
+                    Stage stage = (Stage) root.getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setTitle("Dashboard Form");
+                    stage.centerOnScreen();
+                    stage.setResizable(true);
 
                 }else{
                     new Alert(Alert.AlertType.WARNING,"incorrect username or password.", ButtonType.OK).show();
@@ -68,6 +104,18 @@ public class LoginformController implements Initializable {
         }else{
             new Alert(Alert.AlertType.WARNING,"enter valid username.", ButtonType.OK).show();
         }
+    }
+
+    @FXML
+    void btnSignUpOnAction(ActionEvent event) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/signupform.fxml"));
+        Scene scene = new Scene(anchorPane);
+
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Signup Form");
+        stage.centerOnScreen();
+        stage.setResizable(false);
     }
 
     @Override

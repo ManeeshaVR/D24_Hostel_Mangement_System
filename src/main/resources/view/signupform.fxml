@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="root" prefHeight="377.0" prefWidth="566.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm.controller.SignupformController">
+   <children>
+      <ImageView fitHeight="386.0" fitWidth="572.0" layoutY="1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/hostel-room.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" height="289.0" layoutX="32.0" layoutY="50.0" opacity="0.47" stroke="BLACK" strokeType="INSIDE" width="292.0" />
+      <Text fill="#ffadad" layoutX="124.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Signup">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="txtName" focusColor="#ff006e" layoutX="91.0" layoutY="149.0" onAction="#txtNameOnActon" prefHeight="26.0" prefWidth="199.0" promptText="User Name" style="-fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff;" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtPassword" focusColor="#ff006e" layoutX="90.0" layoutY="218.0" onAction="#txtPasswordOnAction" prefHeight="26.0" prefWidth="199.0" promptText="Password" style="-fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff;" unFocusColor="WHITE" />
+      <JFXButton fx:id="btnSignUp" buttonType="RAISED" layoutX="226.0" layoutY="279.0" onAction="#btnSignUpOnAction" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #000000;" text="Signup" textFill="#dad7cd">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="90.0" fitWidth="88.0" layoutX="471.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Hostel-Logo-removebg.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="55.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/username.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="55.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/password.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="57.0" layoutY="279.0" onAction="#btnLoginOnAction" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: transparent;" text="Login" textFill="#a0c4ff">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

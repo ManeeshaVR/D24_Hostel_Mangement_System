@@ -18,9 +18,15 @@ public interface ReservationBo extends SuperBo {
 
     RoomDTO getRoom(String roomId);
 
-    boolean saveReservation(ReservationDTO reservationDTO);
+    ReservationDTO getReservation(String reservationId);
+
+    boolean saveReservation(ReservationDTO reservationDTO, RoomDTO roomDTO);
+
+    boolean existReservation(String reservationId);
 
     boolean updateRoom(RoomDTO roomDTO);
 
-    boolean cancelReservation(ReservationDTO reservationDTO);
+    boolean deleteReservation(String reservationId, RoomDTO roomDTO);
+
+    List<ReservationDTO> getPendingPayments();
 }

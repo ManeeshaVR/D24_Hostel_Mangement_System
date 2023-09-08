@@ -85,23 +85,23 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtGender" focusColor="#9b5de5" labelFloat="true" layoutX="610.0" layoutY="127.0" onAction="#txtGenderOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Gender" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
+            <JFXTextField fx:id="txtGender" editable="false" focusColor="#9b5de5" labelFloat="true" layoutX="610.0" layoutY="127.0" onAction="#txtGenderOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Gender" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtName" focusColor="#9b5de5" labelFloat="true" layoutX="353.0" layoutY="131.0" onAction="#txtNameOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Student Name" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
+            <JFXTextField fx:id="txtName" editable="false" focusColor="#9b5de5" labelFloat="true" layoutX="353.0" layoutY="131.0" onAction="#txtNameOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Student Name" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXTextField>
             <DatePicker fx:id="dateReserve" layoutX="607.0" layoutY="52.0" onAction="#dateReserveOnAction" opacity="0.93" prefHeight="27.0" prefWidth="202.0" promptText="Date Of Reservation" style="-fx-background-color: #0077b6; -fx-border-color: #0077b6;" />
-            <JFXTextField fx:id="txtQty" focusColor="#9b5de5" labelFloat="true" layoutX="613.0" layoutY="199.0" onAction="#txtQtyOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Remain Qty" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
+            <JFXTextField fx:id="txtQty" editable="false" focusColor="#9b5de5" labelFloat="true" layoutX="613.0" layoutY="199.0" onAction="#txtQtyOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Remain Qty" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtType" focusColor="#9b5de5" labelFloat="true" layoutX="355.0" layoutY="199.0" onAction="#txtTypeOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Room Type" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
+            <JFXTextField fx:id="txtType" editable="false" focusColor="#9b5de5" labelFloat="true" layoutX="355.0" layoutY="199.0" onAction="#txtTypeOnAction" prefHeight="26.0" prefWidth="193.0" promptText="Room Type" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #9b5de5;" unFocusColor="#0077b6">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -122,7 +122,7 @@
       </Label>
       <AnchorPane layoutX="56.0" layoutY="416.0" prefHeight="94.0" prefWidth="1094.0" style="-fx-background-color: white; -fx-background-radius: 30;">
          <children>
-            <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="919.0" layoutY="21.0" onAction="#btnSearchOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #f2e9e4; -fx-background-radius: 10;" text="Search">
+            <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="784.0" layoutY="21.0" onAction="#btnSearchOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #f2e9e4; -fx-background-radius: 10;" text="Search">
                <font>
                   <Font size="18.0" />
                </font>
@@ -137,20 +137,37 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </JFXButton>
-            <TextField fx:id="txtSearch" layoutX="67.0" layoutY="24.0" prefHeight="42.0" prefWidth="768.0" promptText="Enter Reservation Id" style="-fx-background-color: #f8edeb; -fx-background-radius: 15;">
+            <TextField fx:id="txtSearch" layoutX="28.0" layoutY="24.0" prefHeight="42.0" prefWidth="697.0" promptText="Enter Reservation Id" style="-fx-background-color: #f8edeb; -fx-background-radius: 15;">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
+            <JFXButton fx:id="btnPending" buttonType="RAISED" layoutX="945.0" layoutY="20.0" onAction="#btnPendingOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #fca311; -fx-background-radius: 10;" text="Pending">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icon-pending.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </JFXButton>
          </children>
       </AnchorPane>
       <TableView fx:id="tblReservations" layoutX="56.0" layoutY="541.0" prefHeight="246.0" prefWidth="1090.0">
          <columns>
-            <TableColumn fx:id="colRservationId" prefWidth="183.73332595825195" text="Reservation Id" />
-            <TableColumn fx:id="colDate" prefWidth="233.06663513183594" text="Date" />
-            <TableColumn fx:id="colStudentId" prefWidth="196.53326416015625" text="Student Id" />
-            <TableColumn fx:id="colRoomId" prefWidth="216.2667236328125" text="Room Id" />
-            <TableColumn fx:id="colStatus" prefWidth="265.06671142578125" text="Status" />
+            <TableColumn fx:id="colRservationId" prefWidth="110.93330764770508" text="Reservation Id" />
+            <TableColumn fx:id="colDate" prefWidth="130.6667022705078" text="Date" />
+            <TableColumn fx:id="colStudentId" prefWidth="137.06661987304688" text="Student Id" />
+            <TableColumn fx:id="colStudentName" prefWidth="230.13333129882812" text="Student Name" />
+            <TableColumn fx:id="colRoomId" prefWidth="139.73333740234375" text="Room Id" />
+            <TableColumn fx:id="colRoomType" prefWidth="165.06658935546875" text="Room Type" />
+            <TableColumn fx:id="colStatus" prefWidth="181.066650390625" text="Status" />
          </columns>
          <stylesheets>
             <URL value="@../../../../../../AD1/Layered-MyProject/project%20co-operative/src/main/resources/styles/table.css" />

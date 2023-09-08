@@ -33,6 +33,8 @@ public class BOFactory {
                 return new ReservationBoImpl();
             case LOGIN:
                 return new LoginBoImpl();
+            case SIGNUP:
+                return new SignupBoImpl();
             case HOME:
                 return new HomeBoImpl();
             case ACCOUNT:

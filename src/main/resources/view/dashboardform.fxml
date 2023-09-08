@@ -12,9 +12,9 @@
    <children>
       <AnchorPane prefHeight="838.0" prefWidth="330.0" style="-fx-background-color: #ffffff;" />
       <AnchorPane fx:id="pane" layoutX="332.0" layoutY="-1.0" prefHeight="838.0" prefWidth="1215.0" style="-fx-background-color: #e5e5e5;" />
-      <AnchorPane layoutX="15.0" layoutY="10.0" prefHeight="780.0" prefWidth="300.0" style="-fx-background-color: #edede9; -fx-background-radius: 20;">
+      <AnchorPane layoutX="15.0" layoutY="16.0" prefHeight="807.0" prefWidth="300.0" style="-fx-background-color: #edede9; -fx-background-radius: 20;">
          <children>
-            <JFXButton fx:id="btnDash" alignment="BOTTOM_LEFT" buttonType="RAISED" graphicTextGap="15.0" layoutX="14.0" layoutY="120.0" onAction="#dashboardBtnOnAction" prefHeight="64.0" prefWidth="276.0" style="-fx-background-color: #33415c;" text="Dashboard" textFill="#ffbe0b">
+            <JFXButton fx:id="btnDash" alignment="BOTTOM_LEFT" buttonType="RAISED" graphicTextGap="15.0" layoutX="14.0" layoutY="156.0" onAction="#dashboardBtnOnAction" prefHeight="64.0" prefWidth="276.0" style="-fx-background-color: #ffadad;" text="Dashboard" textFill="#3571c4">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -34,7 +34,7 @@
                   <Image url="@../images/Hostel-Logo-removebg.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="btnStudent" alignment="BOTTOM_LEFT" buttonType="RAISED" graphicTextGap="15.0" layoutX="9.0" layoutY="197.0" onAction="#studentBtnOnAction" prefHeight="64.0" prefWidth="276.0" text="Student" textFill="#ffbe0b">
+            <JFXButton fx:id="btnStudent" alignment="BOTTOM_LEFT" buttonType="RAISED" graphicTextGap="15.0" layoutX="9.0" layoutY="259.0" onAction="#studentBtnOnAction" prefHeight="64.0" prefWidth="276.0" text="Student" textFill="#3571c4">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -49,7 +49,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnRoom" alignment="BOTTOM_LEFT" buttonType="RAISED" graphicTextGap="15.0" layoutX="9.0" layoutY="276.0" onAction="#roomBtnOnAction" prefHeight="64.0" prefWidth="276.0" text="Room" textFill="#ffbe0b">
+            <JFXButton fx:id="btnRoom" alignment="BOTTOM_LEFT" buttonType="RAISED" graphicTextGap="15.0" layoutX="9.0" layoutY="350.0" onAction="#roomBtnOnAction" prefHeight="64.0" prefWidth="276.0" text="Room" textFill="#3571c4">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -64,7 +64,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnAccount" alignment="BOTTOM_LEFT" buttonType="RAISED" graphicTextGap="15.0" layoutX="10.0" layoutY="445.0" onAction="#accountBtnOnAction" prefHeight="64.0" prefWidth="276.0" text="Account" textFill="#ffbe0b">
+            <JFXButton fx:id="btnAccount" alignment="BOTTOM_LEFT" buttonType="RAISED" graphicTextGap="15.0" layoutX="10.0" layoutY="528.0" onAction="#accountBtnOnAction" prefHeight="64.0" prefWidth="276.0" text="Account" textFill="#3571c4">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -79,7 +79,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnReserv" alignment="BOTTOM_LEFT" buttonType="RAISED" graphicTextGap="15.0" layoutX="11.0" layoutY="358.0" onAction="#reserveBtnOnAction" prefHeight="64.0" prefWidth="276.0" text="Reservation" textFill="#ffbe0b">
+            <JFXButton fx:id="btnReserv" alignment="BOTTOM_LEFT" buttonType="RAISED" graphicTextGap="15.0" layoutX="11.0" layoutY="439.0" onAction="#reserveBtnOnAction" prefHeight="64.0" prefWidth="276.0" text="Reservation" textFill="#3571c4">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -94,11 +94,11 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnlogout" buttonType="RAISED" layoutX="43.0" layoutY="777.0" onAction="#btnlogoutOnAction" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #ffbc42; -fx-background-radius: 15px;" text="Logout" textFill="WHITE">
+            <JFXButton fx:id="btnlogout" buttonType="RAISED" layoutX="94.0" layoutY="655.0" onAction="#btnlogoutOnAction" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #073b4c; -fx-background-radius: 15px;" text="Logout" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="22.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                      <image>
-                        <Image url="@../../../../../../AD1/Layered-MyProject/project%20co-operative/src/main/resources/img/logout.png" />
+                        <Image url="@../images/logout.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -106,7 +106,6 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="83.0" layoutY="713.0" onAction="#btnInterestOnAction" prefHeight="26.0" prefWidth="145.0" style="-fx-text-fill: #006d77; -fx-background-color: #72efdd;" text="Change Interest Rates" />
          </children>
       </AnchorPane>
    </children>

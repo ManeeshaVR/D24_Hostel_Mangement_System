@@ -72,14 +72,14 @@ public class Convertor {
 
     public static UserDTO toUserDTO(User user) {
         UserDTO userDTO = new UserDTO();
-        userDTO.setUserName(user.getUserName());
+        userDTO.setUsername(user.getUsername());
         userDTO.setPassword(user.getPassword());
         return userDTO;
     }
 
     public static User toUser(UserDTO userDTO) {
         User user = new User();
-        user.setUserName(userDTO.getUserName());
+        user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
         return user;
     }
