@@ -48,7 +48,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="360.0" layoutY="128.0" prefHeight="113.0" prefWidth="212.0" style="-fx-background-color: #dee2e6; -fx-background-radius: 20;">
+      <AnchorPane layoutX="351.0" layoutY="129.0" prefHeight="113.0" prefWidth="212.0" style="-fx-background-color: #dee2e6; -fx-background-radius: 20;">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#ffccd5" height="113.0" stroke="#ffccd5" strokeType="INSIDE" width="70.0" />
             <ImageView fitHeight="48.0" fitWidth="53.0" layoutX="11.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
@@ -68,7 +68,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="647.0" layoutY="124.0" prefHeight="113.0" prefWidth="212.0" style="-fx-background-color: #dee2e6; -fx-background-radius: 20;">
+      <AnchorPane layoutX="644.0" layoutY="127.0" prefHeight="113.0" prefWidth="212.0" style="-fx-background-color: #dee2e6; -fx-background-radius: 20;">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#ffccd5" height="113.0" stroke="#ffccd5" strokeType="INSIDE" width="70.0" />
             <ImageView fitHeight="48.0" fitWidth="53.0" layoutX="11.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
@@ -88,7 +88,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="938.0" layoutY="121.0" prefHeight="113.0" prefWidth="212.0" style="-fx-background-color: #dee2e6; -fx-background-radius: 20;">
+      <AnchorPane layoutX="937.0" layoutY="125.0" prefHeight="113.0" prefWidth="212.0" style="-fx-background-color: #dee2e6; -fx-background-radius: 20;">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#ffccd5" height="113.0" stroke="#ffccd5" strokeType="INSIDE" width="70.0" />
             <ImageView fitHeight="48.0" fitWidth="53.0" layoutX="11.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">

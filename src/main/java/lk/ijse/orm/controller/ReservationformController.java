@@ -181,7 +181,7 @@ public class ReservationformController implements Initializable {
                     roomDTO.setQty(roomDTO.getQty()-1);
                     reservationDTO.setRoom(roomDTO);
 
-                    boolean isSaved = reservationBO.saveReservation(reservationDTO, roomDTO);
+                    boolean isSaved = reservationBO.saveReservation(reservationDTO);
                     if (isSaved) {
                         new Alert(Alert.AlertType.CONFIRMATION, "Reservation added successfully", ButtonType.OK).show();
                         clearTextFields();
@@ -230,7 +230,7 @@ public class ReservationformController implements Initializable {
             RoomDTO roomDTO = reservationBO.getRoom(cmbRoomId.getValue());
             reservationDTO.setRoom(roomDTO);
 
-            boolean isSaved = reservationBO.saveReservation(reservationDTO, roomDTO);
+            boolean isSaved = reservationBO.updateReservation(reservationDTO);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Reservation updated successfully", ButtonType.OK).show();
                 clearTextFields();
@@ -306,7 +306,7 @@ public class ReservationformController implements Initializable {
             txtGender.setText(reservation.getStudent().getGender());
             cmbRoomId.setValue(reservation.getRoom().getRoomTypeId());
             txtType.setText(reservation.getRoom().getType());
-            txtQty.setText(reservation.getRoom().getType());
+            txtQty.setText(String.valueOf(reservation.getRoom().getQty()));
         }else {
             new Alert(Alert.AlertType.WARNING, "No Reservation Found").show();
         }

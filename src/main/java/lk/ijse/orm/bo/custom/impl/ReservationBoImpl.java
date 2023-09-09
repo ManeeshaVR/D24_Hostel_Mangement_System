@@ -72,27 +72,13 @@ public class ReservationBoImpl implements ReservationBo {
     }
 
     @Override
-    public boolean saveReservation(ReservationDTO reservationDTO, RoomDTO roomDTO) {
-//        Session session = FactoryConfiguration.getInstance().getSession();
-//        Transaction transaction = session.beginTransaction();
-//
-//        try {
-//            boolean isSaved = reservationDAO.add(Convertor.toReservation(reservationDTO));
-//            if (isSaved){
-//                boolean isUpdated = roomDAO.update(Convertor.toRoom(roomDTO));
-//                if (isUpdated){
-//                    return true;
-//                }
-//            }
-//            return true;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            transaction.rollback();
-//            return false;
-//        } finally {
-//            session.close();
-//        }
+    public boolean saveReservation(ReservationDTO reservationDTO) {
         return reservationDAO.add(Convertor.toReservation(reservationDTO));
+    }
+
+    @Override
+    public boolean updateReservation(ReservationDTO reservationDTO) {
+        return reservationDAO.update(Convertor.toReservation(reservationDTO));
     }
 
     @Override
