@@ -263,13 +263,15 @@ public class ReservationformController implements Initializable {
 
     @FXML
     void cmbStudentIdOnAction(ActionEvent event) {
-        if( cmbStudentId.getValue() == null) {
+        if( cmbStudentId.getValue() == null || cmbStudentId.getValue().equals(" ") || cmbStudentId.getValue().equals("")) {
             return;
         }
+        System.out.println(cmbStudentId.getValue());
         StudentDTO studentDTO = reservationBO.getStudent(cmbStudentId.getValue());
         txtName.setText(studentDTO.getName());
         txtGender.setText(studentDTO.getGender());
         cmbRoomId.requestFocus();
+
     }
 
     @FXML

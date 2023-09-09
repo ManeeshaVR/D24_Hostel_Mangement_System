@@ -23,6 +23,7 @@ public class Convertor {
 
     public static StudentDTO toStudentDTO(Student student){
         StudentDTO studentDTO = new StudentDTO();
+        System.out.println(student.getStudentId());
         studentDTO.setStudentId(student.getStudentId());
         studentDTO.setName(student.getName());
         studentDTO.setAddress(student.getAddress());
