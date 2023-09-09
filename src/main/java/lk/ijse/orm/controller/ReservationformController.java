@@ -149,6 +149,7 @@ public class ReservationformController implements Initializable {
 
         if (result.orElse(no) == yes){
             RoomDTO roomDTO = reservationBO.getRoom(cmbRoomId.getValue());
+            roomDTO.setQty(roomDTO.getQty()+1);
             boolean isDeleted = reservationBO.deleteReservation(txtReservationsId.getText(), roomDTO);
             if (isDeleted){
                 new Alert(Alert.AlertType.CONFIRMATION, "Reservation deleted successfully", ButtonType.OK).show();
@@ -177,6 +178,7 @@ public class ReservationformController implements Initializable {
                     reservationDTO.setStudent(studentDTO);
 
                     RoomDTO roomDTO = reservationBO.getRoom(cmbRoomId.getValue());
+                    roomDTO.setQty(roomDTO.getQty()-1);
                     reservationDTO.setRoom(roomDTO);
 
                     boolean isSaved = reservationBO.saveReservation(reservationDTO, roomDTO);
@@ -215,7 +217,30 @@ public class ReservationformController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        boolean isExists = reservationBO.existReservation(txtReservationsId.getText());
+        if (isExists) {
+            ReservationDTO reservationDTO = new ReservationDTO();
+            reservationDTO.setReservationId(txtReservationsId.getText());
+            reservationDTO.setDate(dateReserve.getValue());
+            reservationDTO.setStatus(cmbStatus.getValue());
 
+            StudentDTO studentDTO = reservationBO.getStudent(cmbStudentId.getValue());
+            reservationDTO.setStudent(studentDTO);
+
+            RoomDTO roomDTO = reservationBO.getRoom(cmbRoomId.getValue());
+            reservationDTO.setRoom(roomDTO);
+
+            boolean isSaved = reservationBO.saveReservation(reservationDTO, roomDTO);
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Reservation updated successfully", ButtonType.OK).show();
+                clearTextFields();
+                populateReservationTable();
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Failed to update the reservation").show();
+            }
+        }else {
+            new Alert(Alert.AlertType.WARNING,"Reservation Id not exist").show();
+        }
     }
 
     @FXML
@@ -269,7 +294,20 @@ public class ReservationformController implements Initializable {
 
     @FXML
     void txtReservationsIdOnAction(ActionEvent event) {
-
+        boolean isExist = reservationBO.existReservation(txtReservationsId.getText());
+        if (isExist){
+            ReservationDTO reservation = reservationBO.getReservation(txtReservationsId.getText());
+            cmbStatus.setValue(reservation.getStatus());
+            dateReserve.setValue(reservation.getDate());
+            cmbStudentId.setValue(reservation.getStudent().getStudentId());
+            txtName.setText(reservation.getStudent().getName());
+            txtGender.setText(reservation.getStudent().getGender());
+            cmbRoomId.setValue(reservation.getRoom().getRoomTypeId());
+            txtType.setText(reservation.getRoom().getType());
+            txtQty.setText(reservation.getRoom().getType());
+        }else {
+            new Alert(Alert.AlertType.WARNING, "No Reservation Found").show();
+        }
     }
 
     @FXML

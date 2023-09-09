@@ -13,6 +13,9 @@ import lk.ijse.orm.dto.StudentDTO;
 import lk.ijse.orm.entity.Reservation;
 import lk.ijse.orm.entity.Room;
 import lk.ijse.orm.entity.Student;
+import lk.ijse.orm.util.FactoryConfiguration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,12 +69,30 @@ public class ReservationBoImpl implements ReservationBo {
 
     @Override
     public ReservationDTO getReservation(String reservationId) {
-        return null;
+        return Convertor.toReservationDTO(reservationDAO.get(reservationId));
     }
 
     @Override
     public boolean saveReservation(ReservationDTO reservationDTO, RoomDTO roomDTO) {
-        return reservationDAO.add(Convertor.toReservation(reservationDTO));
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            boolean isSaved = reservationDAO.add(Convertor.toReservation(reservationDTO));
+            if (isSaved){
+                boolean isUpdated = roomDAO.update(Convertor.toRoom(roomDTO));
+                if (isUpdated){
+                    return true;
+                }
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -86,7 +107,25 @@ public class ReservationBoImpl implements ReservationBo {
 
     @Override
     public boolean deleteReservation(String reservationId, RoomDTO roomDTO) {
-        return reservationDAO.delete(reservationId);
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            boolean isDeleted = reservationDAO.delete(reservationId);
+            if (isDeleted){
+                boolean isUpdated = roomDAO.update(Convertor.toRoom(roomDTO));
+                if (isUpdated){
+                    return true;
+                }
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
