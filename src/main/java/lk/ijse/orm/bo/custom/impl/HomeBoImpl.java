@@ -6,8 +6,10 @@ import lk.ijse.orm.dao.DAOFactory;
 import lk.ijse.orm.dao.custom.ReservationDAO;
 import lk.ijse.orm.dao.custom.RoomDAO;
 import lk.ijse.orm.dao.custom.StudentDAO;
+import lk.ijse.orm.dto.ReservationDTO;
 import lk.ijse.orm.dto.RoomDTO;
 import lk.ijse.orm.dto.StudentDTO;
+import lk.ijse.orm.entity.Reservation;
 import lk.ijse.orm.entity.Room;
 
 import java.util.ArrayList;
@@ -26,6 +28,16 @@ public class HomeBoImpl implements HomeBo {
             roomDTOS.add(Convertor.toRoomDTO(room));
         }
         return roomDTOS;
+    }
+
+    @Override
+    public List<ReservationDTO> getAllReservations() {
+        List<Reservation> reservationList = reservationDAO.getAll();
+        List<ReservationDTO> reservationDTOS = new ArrayList<>();
+        for (Reservation reservation : reservationList) {
+            reservationDTOS.add(Convertor.toReservationDTO(reservation));
+        }
+        return reservationDTOS;
     }
 
     @Override
@@ -48,8 +60,5 @@ public class HomeBoImpl implements HomeBo {
         return "02";
     }
 
-    @Override
-    public List<StudentDTO> getPendingPayments() {
-        return null;
-    }
+
 }

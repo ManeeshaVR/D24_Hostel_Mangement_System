@@ -3,6 +3,9 @@ package lk.ijse.orm.controller;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
@@ -13,8 +16,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import lk.ijse.orm.bo.BOFactory;
 import lk.ijse.orm.bo.custom.HomeBo;
+import lk.ijse.orm.dto.ReservationDTO;
 import lk.ijse.orm.dto.RoomDTO;
 import lk.ijse.orm.dto.UserDTO;
+import lk.ijse.orm.entity.Reservation;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -98,25 +103,47 @@ public class HomeformController implements Initializable {
 
         series1[0] = new XYChart.Series<>();
         series1[0].getData().add(new XYChart.Data<>("", nonac));
-        series1[0].setName("Shares");
+        series1[0].setName("Non-AC");
 
         series1[1] = new XYChart.Series<>();
         series1[1].getData().add(new XYChart.Data<>("", nonacfood));
-        series1[1].setName("Compulsory Deposits");
+        series1[1].setName("Non-AC/Food");
 
         series1[2] = new XYChart.Series<>();
         series1[2].getData().add(new XYChart.Data<>("", ac));
-        series1[2].setName("Special Deposits");
+        series1[2].setName("AC");
 
         series1[3] = new XYChart.Series<>();
         series1[3].getData().add(new XYChart.Data<>("", acfood));
-        series1[3].setName("Pension Deposits");
+        series1[3].setName("AC/Food");
 
         roomChart.getData().addAll(series1);
     }
 
     private void initializePieChart() {
+        List<ReservationDTO> reservations = homeBo.getAllReservations();
+        int pending = 0;
+        int done = 0;
+        for (ReservationDTO reservationDTO : reservations){
+            if (reservationDTO.getStatus().equals("payment done")){
+                done++;
+            }else if (reservationDTO.getStatus().equals("pending payment")){
+                pending++;
+            }
+        }
+        ObservableList<PieChart.Data> pieData= FXCollections.observableArrayList(
+                new PieChart.Data("Completed Payments", done),
+                new PieChart.Data("Pending Payments", pending)
+        );
 
+        pieData.forEach(data ->
+                data.nameProperty().bind(
+                        Bindings.concat(
+                                data.getName(), " : ", data.pieValueProperty()
+                        )
+                )
+        );
+        pieChart.setData(pieData);
     }
 
     private void loadDateAndTime() {

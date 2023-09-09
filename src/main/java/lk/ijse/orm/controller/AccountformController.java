@@ -52,6 +52,7 @@ public class AccountformController {
         stage.setTitle("Dashboard Form");
         stage.centerOnScreen();
         stage.setResizable(true);
+        stage.setMaximized(true);
     }
 
     @FXML

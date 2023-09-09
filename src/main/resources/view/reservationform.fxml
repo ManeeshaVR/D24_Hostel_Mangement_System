@@ -15,12 +15,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="838.0" prefWidth="1215.0" style="-fx-background-color: #f8f6f6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm.controller.ReservationformController">
    <children>
       <AnchorPane layoutX="49.0" layoutY="31.0" prefHeight="359.0" prefWidth="846.0" style="-fx-background-color: white; -fx-background-radius: 30;">
          <children>
-            <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="693.0" layoutY="249.0" onAction="#btnSaveOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #57cc99; -fx-background-radius: 10;" text="Save">
+            <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="693.0" layoutY="268.0" onAction="#btnSaveOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #57cc99; -fx-background-radius: 10;" text="Save">
                <font>
                   <Font size="18.0" />
                </font>
@@ -35,7 +34,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="530.0" layoutY="249.0" onAction="#btnUpdateOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #62b6cb; -fx-background-radius: 10;" text="Update">
+            <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="530.0" layoutY="268.0" onAction="#btnUpdateOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #62b6cb; -fx-background-radius: 10;" text="Update">
                <font>
                   <Font size="18.0" />
                </font>
@@ -50,7 +49,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="361.0" layoutY="249.0" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #ff595e; -fx-background-radius: 10;" text="Delete">
+            <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="361.0" layoutY="268.0" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #ff595e; -fx-background-radius: 10;" text="Delete">
                <font>
                   <Font size="18.0" />
                </font>
@@ -65,7 +64,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnClear" buttonType="RAISED" layoutX="193.0" layoutY="249.0" onAction="#btnClearOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #ffd60a; -fx-background-radius: 10;" text="Clear">
+            <JFXButton fx:id="btnClear" buttonType="RAISED" layoutX="193.0" layoutY="268.0" onAction="#btnClearOnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #ffd60a; -fx-background-radius: 10;" text="Clear">
                <font>
                   <Font size="18.0" />
                </font>
@@ -106,7 +105,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXTextField>
-            <JFXComboBox fx:id="cmbRoomId" editable="true" focusColor="#9b5de5" labelFloat="true" layoutX="57.0" layoutY="203.0" onAction="#cmbRoomIdOnAction" prefHeight="26.0" prefWidth="210.0" promptText="Room Id" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #ff006e;" styleClass="combo-box" unFocusColor="#0077b6" />
+            <JFXComboBox fx:id="cmbRoomId" editable="true" focusColor="#9b5de5" labelFloat="true" layoutX="59.0" layoutY="203.0" onAction="#cmbRoomIdOnAction" prefHeight="26.0" prefWidth="210.0" promptText="Room Id" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #ff006e;" styleClass="combo-box" unFocusColor="#0077b6" />
             <JFXComboBox fx:id="cmbStatus" editable="true" focusColor="#9b5de5" labelFloat="true" layoutX="344.0" layoutY="51.0" onAction="#cmbStatusOnAction" prefHeight="26.0" prefWidth="210.0" promptText="Status" style="-fx-prompt-text-fill: #0077b6; -fx-text-fill: #ff006e;" styleClass="combo-box" unFocusColor="#0077b6" />
          </children>
       </AnchorPane>
